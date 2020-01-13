@@ -6,8 +6,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="application-name" content="Mystery.org">
   <meta name="apple-mobile-web-app-title" content="Mystery.org">
-  <meta name="theme-color" content="blue">
-  <meta name="msapplication-navbutton-color" content="blue">
+  <meta name="theme-color" content="white">
+  <meta name="msapplication-navbutton-color" content="white">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="msapplication-starturl" content="/index.html">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,11 +28,98 @@
   <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
   <link rel="icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57.png">
-</head>
-<body style="background-color: blue;">
 
-  I'm the body 10
-  <hr>
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body style="background-color: white; border: 0; margin: 0; padding: 0;">
+
+  <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button">arrow_back</button>
+        <span class="mdc-top-app-bar__title">Mystery.org</span>
+      </section>
+    </div>
+  </header>
+
+  <div style="padding: 72px 8px 0 8px;">
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+    hello<br>
+  </div>
+
+  <!-- Required MDC Web JavaScript library -->
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <!-- Instantiate single textfield component rendered in the document -->
+  <script>
+    const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+    const topAppBar = new MDCTopAppBar(topAppBarElement);
+  </script>
 
   <script>
   document.write('<a href="index.html?'+Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+'" style="color: white;">reload body</a>');

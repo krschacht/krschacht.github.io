@@ -1,0 +1,143 @@
+<html>
+<head>
+  <link rel="manifest" href="manifest.json">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Mystery.org">
+  <meta name="apple-mobile-web-app-title" content="Mystery.org">
+  <meta name="theme-color" content="white">
+  <meta name="msapplication-navbutton-color" content="white">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="msapplication-starturl" content="/index.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body style="background-color: white; border: 0; margin: 0; padding: 0;">
+
+  <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="location.href='../index.html'">arrow_back</button>
+        <span class="mdc-top-app-bar__title">Mystery.org</span>
+      </section>
+    </div>
+  </header>
+  <br>
+  <br>
+  <br>
+  <div class="mdc-layout-grid">
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
+        <div class="mdc-card demo-card" onclick="location.href='chase.html'">
+          <div class="mdc-card__primary-action" tabindex="0">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('../img/chase.jpg');"></div>
+            <div class="demo-card__primary">
+              <div class="demo-card__supporting-text mdc-typography">
+                Chase
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
+        <div class="mdc-card demo-card" onclick="location.href='rubble.html'">
+          <div class="mdc-card__primary-action" tabindex="0">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('../img/rubble.jpg');"></div>
+            <div class="demo-card__primary">
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
+                Rubble
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
+        <div class="mdc-card demo-card" onclick="location.href='rocky.html'">
+          <div class="mdc-card__primary-action" tabindex="0">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('../img/rocky.jpg');"></div>
+            <div class="demo-card__primary">
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
+                Rocky
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
+        <div class="mdc-card demo-card" onclick="location.href='zuma.html'">
+          <div class="mdc-card__primary-action" tabindex="0">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('../img/zuma.jpg');"></div>
+            <div class="demo-card__primary">
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
+                Zuma
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- row -->
+
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
+        <div class="mdc-card demo-card" onclick="location.href='skye.html'">
+          <div class="mdc-card__primary-action" tabindex="0">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('../img/skye.jpg');"></div>
+            <div class="demo-card__primary">
+              <div class="demo-card__supporting-text mdc-typography">
+                Skye
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
+        <div class="mdc-card demo-card" onclick="location.href='marshall.html'">
+          <div class="mdc-card__primary-action" tabindex="0">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('../img/marshall.jpg');"></div>
+            <div class="demo-card__primary">
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
+                Marshall
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <style>
+  .demo-card__primary {
+    padding: 1rem;
+  }
+  .mdc-card__media {
+    height: 400px;
+  }
+  </style>
+
+  <!-- Required MDC Web JavaScript library -->
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <!-- Instantiate single textfield component rendered in the document -->
+  <script>
+    const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+    const topAppBar = new MDCTopAppBar(topAppBarElement);
+    const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+    const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+      return new MDCRipple(el);
+    });
+  </script>
+
+  <script>
+    document.write('&nbsp;&nbsp;&nbsp;<a href="index.html?'+Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+'" style="color: black;">refresh</a><br><br>');
+  </script>
+</body>
+</html>

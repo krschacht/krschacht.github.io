@@ -23,19 +23,56 @@
   <br>
   <br>
   <br>
-  <div class="mdc-layout-grid">
+  <div class="mdc-layout-grid story_player">
     <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile" style="background-color: black;">
-        asdf
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-2-mobile section_bar">
+        <div id="progress1" class="section_filled"></div>
+      </div>
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-2-mobile section_bar">
+        <div id="progress2" class="section_filled"></div>
+      </div>
+    </div>
+    <div class="mdc-layout-grid__inner">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile">
+        <img src="img/marshall.jpg" style="padding-top: 15px;">
       </div>
     </div>
   </div>
+
+  <style>
+    .story_player {
+       background-color: #373737;
+    }
+    .section_bar {
+      background-color: rgba(204,204,204,0.5);
+      box-shadow: 0 0px 5px 1px rgba(0, 0, 0, 0.2);
+    }
+    .section_filled {
+      background-color: rgba(255,255,255,1.0);
+      width: 0%;
+      height: 4px;
+    }
+  </style>
 
   <audio id="clip">
     <source src="audio/marshall.m4a" type="audio/mp4">
   </audio>
 
-  <input type="button" value="click" onclick="$('audio#clip')[0].play()" style="font-size: 40px; width: 300px;">
+  <input type="button" value="click" onclick="play();" style="font-size: 40px; width: 300px;">
+
+  <script>
+    function play() {
+      clip = $('audio#clip')[0];
+      duration = clip.duration;
+      console.log('length: ' + duration);
+
+      $('#progress1').animate({
+        width: "100%"
+      }, Math.round(duration*1000), "linear");
+
+      clip.play();
+    }
+  </script>
 
   <!-- Required MDC Web JavaScript library -->
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>

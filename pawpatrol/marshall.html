@@ -15,7 +15,7 @@
   <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
     <div class="mdc-top-app-bar__row">
       <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="location.href='../index.html'">arrow_back</button>
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="location.href='./index.html'">arrow_back</button>
         <span class="mdc-top-app-bar__title">Mystery.org</span>
       </section>
     </div>
@@ -40,6 +40,9 @@
             </i>
             <div class="slide" id="slide1">
               <img src="img/marshall.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
+              <audio id="clip">
+                <source src="audio/marshall.m4a" type="audio/mp4">
+              </audio>
             </div>
             <div class="slide" id="slide2">
               <img src="img/marshall.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
@@ -108,56 +111,10 @@
       top: 281px;
       left: 432px;
       z-index: 10;
-      text-shadow: 0 0 25px rgb(77,0,234);
+      text-shadow: 0 0 5px #ffffff, 0 0 35px #ffffff, 0 0 50px #ffffff;
       cursor: hand;
     }
   </style>
-
-  <audio id="clip">
-    <source src="audio/marshall.m4a" type="audio/mp4">
-  </audio>
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-
 
   <script>
     $('#play').click(function() {
@@ -182,7 +139,7 @@
       });
 
       $('#slide1 img').animate({
-        left: "100px"
+        right: "300px"
       }, duration, "linear");
     }
 
@@ -220,6 +177,47 @@
       return new MDCRipple(el);
     });
   </script>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
   <script>
     document.write('&nbsp;&nbsp;&nbsp;<a href="index.html?'+Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+'" style="color: black;">refresh</a><br><br>');

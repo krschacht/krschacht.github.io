@@ -1,1 +1,226 @@
-rocky
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body style="background-color: white; border: 0; margin: 0; padding: 0;">
+
+  <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="location.href='./index.html'">arrow_back</button>
+        <span class="mdc-top-app-bar__title">Mystery.org</span>
+      </section>
+    </div>
+  </header>
+
+  <div class="mdc-layout-grid story_player" style="padding-top: 82px;">
+    <div class="mdc-layout-grid__inner"> <!-- inner player -->
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile">
+        <div class="mdc-layout-grid__inner"> <!-- progress bars -->
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-2-mobile section_bar">
+            <div id="progress1" class="section_filled"></div>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-2-mobile section_bar">
+            <div id="progress2" class="section_filled"></div>
+          </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile" style="margin-top: 15px; position: relative; height: 710px; overflow: hidden;">
+          <!-- cell media -->
+          <div class="slides">
+            <i class="material-icons" id="play">
+              play_arrow
+            </i>
+            <div class="slide" id="slide1">
+              <img src="img/rocky.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
+              <audio id="clip">
+                <source src="audio/rocky.m4a" type="audio/mp4">
+              </audio>
+            </div>
+            <div class="slide" id="slide2">
+              <img src="img/rocky.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
+            </div>
+            <div class="slide" id="slide3">
+              <div style="font-size: 41px; font-family: arial; margin-top: 325px; text-align: center;">
+                Done
+              </div>
+            </div>
+          </div> <!-- slides -->
+        </div> <!-- cell -->
+      </div>
+    </div> <!-- inner player -->
+  </div>
+
+  <div class="mdc-layout-grid suggestions" style="padding-top: 82px;">
+    <div class="mdc-layout-grid__inner"> <!-- inner more suggestions -->
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile">
+        suggestions
+      </div>
+    </div>
+  </div>
+
+
+  <style>
+    .story_player {
+       background-color: #373737;
+    }
+    .section_bar {
+      background-color: rgba(204,204,204,0.5);
+      box-shadow: 0 0px 5px 1px rgba(0, 0, 0, 0.2);
+    }
+    .section_filled {
+      background-color: rgba(255,255,255,1.0);
+      width: 0%;
+      height: 4px;
+    }
+    .slides {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3192px; /* 1064 x 3 */
+      height: 710px;
+      background-color: white;
+    }
+    .slide {
+      width: 1064px;
+      height: 710px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #slide1 {
+      left: 0;
+    }
+    #slide2 {
+      left: 1064px;
+    }
+    #slide3 {
+      left: 2128px;
+    }
+    #play {
+      color: rgb(77,0,234);
+      font-size: 150px;
+      position: absolute;
+      top: 281px;
+      left: 432px;
+      z-index: 10;
+      text-shadow: 0 0 5px #ffffff, 0 0 35px #ffffff, 0 0 50px #ffffff;
+      cursor: hand;
+    }
+  </style>
+
+  <script>
+    $('#play').click(function() {
+      $(this).css('display', 'none');
+      play1();
+    });
+
+    function play1() {
+      clip = $('audio#clip')[0];
+      duration = Math.round(clip.duration*1000);
+
+      clip.play();
+
+      $('#progress1').animate({
+        width: "100%"
+      }, duration, "linear", function() {
+        $('.slides').animate({
+          left: "-1064px",
+        }, 100, "linear", function() {
+          play2();
+        });
+      });
+
+      $('#slide1 img').animate({
+        right: "100px"
+      }, duration, "linear");
+    }
+
+    function play2() {
+      duration = 1000;
+
+      $('#progress2').animate({
+        width: "100%"
+      }, duration, "linear", function() {
+        $('.slides').animate({
+          left: "-2128px",
+        }, 100, "linear", function() {
+          done();
+        });
+      });
+
+      $('#slide2 img').animate({
+        left: "100px"
+      }, duration, "linear");
+    }
+
+    function done() {
+      $("html, body").animate({ scrollTop: 700 }, 1000);
+    }
+  </script>
+
+  <!-- Required MDC Web JavaScript library -->
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <!-- Instantiate single textfield component rendered in the document -->
+  <script>
+    const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+    const topAppBar = new MDCTopAppBar(topAppBarElement);
+    const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+    const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+      return new MDCRipple(el);
+    });
+  </script>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <script>
+    document.write('&nbsp;&nbsp;&nbsp;<a href="index.html?'+Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+'" style="color: black;">refresh</a><br><br>');
+  </script>
+</body>
+</html>

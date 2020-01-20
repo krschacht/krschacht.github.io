@@ -246,7 +246,7 @@
     $(document).ready(function() {
       $('#carregar').click(function(){
         $.ajax({
-          url: "https://www.jqueryscript.net/demo/Fluid-Ajax-enabled-jQuery-Pinterest-Style-Grid-Layout/ajax.html",
+          url: "krschacht.github.io/ajax.html",
           type: 'GET',
           success: function(data){
             resposta = data.split('<//>');
@@ -270,7 +270,7 @@
           },
           error: function(xhr, thrownError){
             alert(xhr.status);
-            alert(trownError);
+            alert(thrownError);
           }
         });
       });

@@ -58,7 +58,9 @@
             </div>
             <div class="slide" id="slide3">
               <div style="font-size: 41px; font-family: arial; margin-top: 325px; text-align: center;">
-                Done
+                <a href="#" onclick="replay();" class="material-icons" style="font-size: 70px; text-decoration: none; color: black;">
+                  replay
+                </a>
               </div>
             </div>
           </div> <!-- slides -->
@@ -247,6 +249,15 @@
 
     function done() {
       $("html, body").animate({ scrollTop: 700 }, 1000);
+    }
+
+    function replay() {
+      $('#slide1 img').css('right', '200px');
+      $('#progress1').css('width', '0%');
+      $('#progress2').css('width', '0%');
+      $('.slides').css('left', '0px');
+
+      play1();
     }
 
     function shuffle(array) {

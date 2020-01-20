@@ -54,7 +54,7 @@
               </audio>
             </div>
             <div class="slide" id="slide2">
-              <video loop autoplay controls="true" width='100%' height='100%' src='img/slide2.mp4' type='video/mp4'></video>
+              <video muted controls="false" width='100%' height='100%' src='img/slide2.mp4' type='video/mp4' style="width: 1070px;"></video>
             </div>
             <div class="slide" id="slide3">
               <div style="font-size: 41px; font-family: arial; margin-top: 325px; text-align: center;">
@@ -205,9 +205,9 @@
 
     function play1() {
       clip = $('audio#clip')[0];
-      duration = 200; // Math.round(clip.duration*1000);
+      duration = Math.round(clip.duration*1000);
 
-      //clip.play();
+      clip.play();
 
       $('#progress1').animate({
         width: "100%"
@@ -225,7 +225,10 @@
     }
 
     function play2() {
-      duration = 4000;
+      clip = $('#slide2 video')[0];
+      duration = Math.round(clip.duration*1000);
+
+      clip.play();
 
       $('#progress2').animate({
         width: "100%"

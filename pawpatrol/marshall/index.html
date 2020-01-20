@@ -1,5 +1,11 @@
 <html>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <style>
+    html {
+      font-size: initial;
+    }
+  </style>
   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -8,7 +14,13 @@
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="../../js/grid.js"></script>
+
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script src="images.js"></script>
 </head>
 <body style="background-color: white; border: 0; margin: 0; padding: 0;">
 
@@ -35,9 +47,6 @@
         <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile" style="margin-top: 15px; position: relative; height: 710px; overflow: hidden;">
           <!-- cell media -->
           <div class="slides">
-            <i class="material-icons" id="play">
-              play_arrow
-            </i>
             <div class="slide" id="slide1">
               <img src="img/slide1.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
               <audio id="clip">
@@ -58,14 +67,90 @@
     </div> <!-- inner player -->
   </div>
 
-  <div class="mdc-layout-grid suggestions" style="padding-top: 82px;">
-    <div class="mdc-layout-grid__inner"> <!-- inner more suggestions -->
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile">
-        suggestions
-      </div>
-    </div>
+  <div class="mdc-layout-grid suggestions" style="padding-top: 30px;">
+    <section class="pinterest-grid">
+    </section>
   </div>
 
+  <div id="sidebar" style="position: fixed; right: 0; top: 64px; width: 200px; background-color: #373737; display: none;">
+    <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="close_sidebar();" style="top: 4px; left: 3px; position: absolute; color: white;">close</button>
+
+    <img src="" style="position: absolute; top: 55px;">
+  </div>
+
+  <script>
+  var grid_width = 0;
+  var grid_width_half = 0;
+
+  $(document).ready(function(){
+    grid_width = $('.pinterest-grid').width();
+    grid_width_half = Math.round(grid_width/2);
+
+    for (var i = 0; i < 5; i++) {
+      images = shuffle(images);
+      $.each(images, function(i, url) {
+        $(".pinterest-grid").append('<article class="mdc-card"><img class="img-responsive" src="' + url + '" /></article>');
+      });
+    }
+
+    $('article.mdc-card img').click(function() {
+      $('.pinterest-grid').css('width', grid_width_half );
+      $(window).resize();
+
+      $('article.mdc-card img').removeClass('selected');
+      $(this).addClass('selected');
+      $img = $(this);
+      setTimeout(function () {
+        $(document).scrollTop($('.selected').offset().top-75);
+
+        open_sidebar($img);
+      }, 300);
+    });
+  });
+
+  var imgimg;
+  function open_sidebar(img) {
+    $img = img;
+
+    $('#sidebar').show();
+    $('#sidebar').css('width', grid_width_half);
+    $('#sidebar').css('height', 1000);
+
+    $('#sidebar img').attr('src', $img.attr('src'));
+    $('#sidebar img').css('left', '17px');
+    $('#sidebar img').css('width', grid_width_half-17-17 + 'px');
+  }
+
+  function close_sidebar() {
+    $('article.mdc-card img').removeClass('selected');
+    $('#sidebar').hide();
+    $('.pinterest-grid').css('width', grid_width);
+    $(window).resize();
+  }
+
+  function elementScrolled(elem)
+  {
+      var docViewTop = $(window).scrollTop();
+      var docViewBottom = docViewTop + $(window).height();
+      var elemTop = $(elem).offset().top - 70;
+      return ((docViewBottom >= elemTop) && (elemTop >= docViewTop));
+  }
+
+  $(window).scroll(function(){
+    if(elementScrolled('.suggestions')) {
+      close_sidebar();
+    }
+  });
+  </script>
+
+  <style>
+    article.mdc-card {
+      cursor: hand;
+    }
+    .mdc-card img.selected {
+      border: 1px solid blue;
+    }
+  </style>
 
   <style>
     .story_player {
@@ -104,21 +189,17 @@
     #slide3 {
       left: 2128px;
     }
-    #play {
-      color: rgb(77,0,234);
-      font-size: 150px;
-      position: absolute;
-      top: 281px;
-      left: 432px;
-      z-index: 10;
-      text-shadow: 0 0 5px #ffffff, 0 0 35px #ffffff, 0 0 50px #ffffff;
-      cursor: hand;
+
+    .pinterest-grid {
+      position:relative;
+    }
+    .pinterest-grid article {
+      position:absolute;
     }
   </style>
 
   <script>
-    $('#play').click(function() {
-      $(this).css('display', 'none');
+    $(document).ready(function(){
       play1();
     });
 
@@ -164,12 +245,34 @@
     function done() {
       $("html, body").animate({ scrollTop: 700 }, 1000);
     }
+
+    function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    }
   </script>
 
   <!-- Required MDC Web JavaScript library -->
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <!-- Instantiate single textfield component rendered in the document -->
   <script>
+    $(document).ready(function(){
+      $('.pinterest-grid').pinterest_grid({});
+    });
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');
     const topAppBar = new MDCTopAppBar(topAppBarElement);
     const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
@@ -178,46 +281,48 @@
     });
   </script>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+  <br><br><br>
+
+  <input type="button" value="re-run" onclick="$(window).resize();"/>
 
   <script>
     document.write('&nbsp;&nbsp;&nbsp;<a href="index.html?'+Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+'" style="color: black;">refresh</a><br><br>');

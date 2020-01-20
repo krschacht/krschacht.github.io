@@ -84,7 +84,7 @@
   var grid_width = 0;
   var grid_width_half = 0;
 
-  $(document).ready(function(){
+  $(document).load(function(){
     grid_width = $('.pinterest-grid').width();
     grid_width_half = Math.round(grid_width/2);
 
@@ -108,9 +108,10 @@
         open_sidebar($img);
       }, 300);
     });
+
+    $('.pinterest-grid').pinterest_grid({});
   });
 
-  var imgimg;
   function open_sidebar(img) {
     $img = img;
 
@@ -201,7 +202,7 @@
   </style>
 
   <script>
-    $(document).ready(function(){
+    $(document).load(function(){
       play1();
     });
 
@@ -284,9 +285,6 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <!-- Instantiate single textfield component rendered in the document -->
   <script>
-    $(document).ready(function(){
-      $('.pinterest-grid').pinterest_grid({});
-    });
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');
     const topAppBar = new MDCTopAppBar(topAppBarElement);
     const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';

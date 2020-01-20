@@ -19,6 +19,65 @@
   <script src="../../js/grid.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <script>
+  images = [
+    "https://d1whcn1ntmec99.cloudfront.net/images/catalog/products/pawpatrol/mission_chase/full4.jpg",
+    "https://images.prod.meredith.com/product/f962cceac36f2fb754a19af752a43a72/1531244905072/l/paw-patrol-basic-10-plush-chase-walmart-exclusive",
+    "https://cdn2.bigcommerce.com/server1500/d2815/products/49515/images/76780/paw-patrol-ty-figures-chase-partytoyz__58626.1530549215.1280.1280.jpg?c=2",
+    "https://i.ya-webdesign.com/images/paw-patrol-rubble-wrench-png-14.png",
+    "https://i.kinja-img.com/gawker-media/image/upload/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200/jnxwbra7baqpwizrigqq.jpg",
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/887a126c-7df5-433d-b27c-d01f9c708b76/dbu9spo-56fac0bc-496d-49ad-b518-58d9ecd232c0.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg4N2ExMjZjLTdkZjUtNDMzZC1iMjdjLWQwMWY5YzcwOGI3NlwvZGJ1OXNwby01NmZhYzBiYy00OTZkLTQ5YWQtYjUxOC01OGQ5ZWNkMjMyYzAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.exEWHV1JC7FqiBnPHW21HoyD3JEYnitTl26sK7K73mA",
+    "https://d1whcn1ntmec99.cloudfront.net/images/catalog/products/pawpatrol/paw-patrol-ultimate-rescue-construction-chase-with-flip-open-backpack/full4.jpg",
+    "https://d1whcn1ntmec99.cloudfront.net/images/catalog/products/pawpatrol/all-stars-action-pack-pup-chase/full1.jpg",
+    "https://cdn.shopify.com/s/files/1/2013/2287/products/955120-Chase_800x.jpg?v=1571609583",
+    "https://media.entertainmentearth.com/assets/images/899dfc78f87248f2973295b8c5157f08lg.jpg",
+    "https://s7.orientaltrading.com/is/image/OrientalTrading/13791872",
+    "https://target.scene7.com/is/image/Target/GUEST_778f8c54-e5c3-4776-a071-f4c906d3add8?wid=488&hei=488&fmt=pjpeg",
+    "https://www.bbtoystore.com/mm5/beanies/TYKC_chase-41276_PawP_540x540.jpg",
+    "https://target.scene7.com/is/image/Target/GUEST_a5c14fd9-1551-4fb8-a172-ce5955aac3a3?wid=488&hei=488&fmt=pjpeg",
+    "https://i5.walmartimages.com/asr/8294c7ff-e156-4b2d-948a-a80c684e125e_1.b6074c6a0550ed5b844c7ac6f269b3ae.jpeg",
+    "https://i5.walmartimages.com/asr/7c7fe9d7-267b-4e42-a55e-67a49c36aa3d_1.47032011ae19c1486fd8629cd78e954a.jpeg",
+    "https://cdn.shopify.com/s/files/1/0020/0002/7695/products/Chase-aa_800x.JPG?v=1535039633",
+    "https://www.google.com/url?sa=i&source=images&cd=&ved=2ahUKEwjggp-I1ZHnAhVjGjQIHa35AwEQjRx6BAgBEAQ&url=https%3A%2F%2Fwww.amazon.com%2FNickelodeon-Patrol-Chase-Backpack-School%2Fdp%2FB07L5TXZ5T&psig=AOvVaw0APFZnZwG3cyL95-ed2cUT&ust=1579592039072299",
+    "https://images-na.ssl-images-amazon.com/images/I/51rLjCFRQtL._SX331_BO1,204,203,200_.jpg",
+    "https://images-na.ssl-images-amazon.com/images/I/71HlQTTw1rL._AC_SX466_.jpg",
+    "https://images-na.ssl-images-amazon.com/images/I/61VHud2ip0L._AC_SL1500_.jpg",
+    "https://images-na.ssl-images-amazon.com/images/I/71h%2BE60PzOL._SX355_.jpg",
+    "https://images-na.ssl-images-amazon.com/images/I/91mvCyVFR5L._SX342_.jpg",
+    "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/887a126c-7df5-433d-b27c-d01f9c708b76/dbu9tda-a6a09f32-d6ca-47f5-9b32-38125ceb29ec.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzg4N2ExMjZjLTdkZjUtNDMzZC1iMjdjLWQwMWY5YzcwOGI3NlwvZGJ1OXRkYS1hNmEwOWYzMi1kNmNhLTQ3ZjUtOWIzMi0zODEyNWNlYjI5ZWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.GBmIwJ13dZnE4i-Kdcoxowhhi7ZUvQ3zbviwBtXnm60",
+    "https://i.ytimg.com/vi/oNs9wGseAPs/hqdefault.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Spy-Chase-and-Penguins-Rescue-Set.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Chases-Tow-Truck-Figure-and-Vehicle.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/IONIX-Jr.-PAW-Patrol-Chases-Cruiser.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Mission-Paw-Air-Patroller.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Nickelodeon-Paw-Patrol-Chase-Pillow-Pets.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Mission-Paw-Chases-Three-Wheeler-Figure-and-Vehicle.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Chase-Bath-Squirter.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Sea-Patrol-Light-Up-Chase-with-Pup-Pack.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Chases-Transforming-Sea-Patrol-Vehicle.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Playhut-Paw-Patrol-Chase-Police-Truck-Playhouse.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Mission-Paw-Chases-Mission-Police-Cruiser.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Chase-Action-Pack-Pup-Badge.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Jungle-Rescue-Chases-Jungle-Cruiser.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/TY-Paw-Patrol-Chase-Plush.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Chase-Plush-Piggy-Bank.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Chase-Super-Pups-Figure.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Snowboard-Chase-Winter-Rescues-Action-Pack-Pup.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Real-Talking-Chase-Lights-and-Sounds-Plush.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/TY-Beanie-Boos-Chase-Plush.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Nickelodeon-Paw-Patrol-Chase-Sunglasses.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Nickelodeon-Paw-Patrol-Chase-Coin-Bank.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Pup-Fu-Chase-and-Kitty-Rescue-Set.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Chase-Snuggle-Up-Pup.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Chases-Pup-Pack.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Chases-Spy-Cruiser.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Free-Chase-is-on-the-Case-Activity-Pack.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Diy-Chase-Paper-Vehicle-Toy-Craft.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Free-Printable-Masks-and-Ears.jpg",
+    "https://toynotes.com/wp-content/uploads/2018/03/Paw-Patrol-Coloring-Pages.jpg"
+  ]
+  </script>
 </head>
 <body style="background-color: white; border: 0; margin: 0; padding: 0;">
 
@@ -68,42 +127,79 @@
     </div> <!-- inner player -->
   </div>
 
-  <input id='tester' type="button" value="test" onclick="$('.pinterest-grid').css('width', Math.round($('.pinterest-grid').width()/2) ); $(window).resize();">
-
   <div class="mdc-layout-grid suggestions" style="padding-top: 30px;">
     <section class="pinterest-grid">
-
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1000x2000" /></article>
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1000x3000" /></article>
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/2000x3000" /></article>
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/3000x2000" /></article>
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/2000x4000" /></article>
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1024x768" /></article>
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1024x768" /></article>
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1024x768" /></article>
-      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1024x768" /></article>
-
     </section>
+  </div>
+
+  <div id="sidebar" style="position: fixed; right: 0; top: 64px; width: 200px; background-color: #373737; display: none;">
+    <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" onclick="close_sidebar();" style="top: 4px; left: 3px; position: absolute; color: white;">close</button>
+
+    <img src="" style="position: absolute; top: 55px;">
   </div>
 
   <script>
   var grid_width = 0;
+  var grid_width_half = 0;
+
   $(document).ready(function(){
     grid_width = $('.pinterest-grid').width();
+    grid_width_half = Math.round(grid_width/2);
+
+    $.each(images, function(i, url) {
+      $(".pinterest-grid").append('<article class="mdc-card"><img class="img-responsive" src="' + url + '" /></article>');
+    });
+
+    $('article.mdc-card img').click(function() {
+      $('.pinterest-grid').css('width', grid_width_half );
+      $(window).resize();
+
+      $('article.mdc-card img').removeClass('selected');
+      $(this).addClass('selected');
+      $img = $(this);
+      setTimeout(function () {
+        $(document).scrollTop($('.selected').offset().top-75);
+
+        open_sidebar($img);
+      }, 300);
+    });
   });
 
-  $('article.mdc-card img').click(function() {
-    $('.pinterest-grid').css('width', Math.round(grid_width/2) );
-    $(window).resize();
+  var imgimg;
+  function open_sidebar(img) {
+    $img = img;
 
+    $('#sidebar').show();
+    $('#sidebar').css('width', grid_width_half);
+    $('#sidebar').css('height', 1000);
+
+    $('#sidebar img').attr('src', $img.attr('src'));
+    $('#sidebar img').css('left', '17px');
+    $('#sidebar img').css('width', grid_width_half-17-17 + 'px');
+  }
+
+  function close_sidebar() {
     $('article.mdc-card img').removeClass('selected');
-    $(this).addClass('selected');
+    $('#sidebar').hide();
+    $('.pinterest-grid').css('width', grid_width);
+    $(window).resize();
+  }
 
-    setTimeout(function () {
-      $(document).scrollTop($('.selected').offset().top-75);
-    }, 300);
+  function elementScrolled(elem)
+  {
+      var docViewTop = $(window).scrollTop();
+      var docViewBottom = docViewTop + $(window).height();
+      var elemTop = $(elem).offset().top - 70;
+      return ((docViewBottom >= elemTop) && (elemTop >= docViewTop));
+  }
+
+  $(window).scroll(function(){
+    if(elementScrolled('.suggestions')) {
+      close_sidebar();
+    }
   });
   </script>
+
   <style>
     article.mdc-card {
       cursor: hand;

@@ -20,24 +20,41 @@
       </section>
     </div>
   </header>
-  <br>
-  <br>
-  <br>
-  <div class="mdc-layout-grid story_player">
-    <div class="mdc-layout-grid__inner">
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-2-mobile section_bar">
-        <div id="progress1" class="section_filled"></div>
-      </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-2-mobile section_bar">
-        <div id="progress2" class="section_filled"></div>
-      </div>
-    </div>
-    <div class="mdc-layout-grid__inner">
+
+  <div class="mdc-layout-grid story_player" style="padding-top: 82px;">
+    <div class="mdc-layout-grid__inner"> <!-- inner player -->
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile">
-        <img src="img/marshall.jpg" style="padding-top: 15px;">
+        <div class="mdc-layout-grid__inner"> <!-- progress bars -->
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-2-mobile section_bar">
+            <div id="progress1" class="section_filled"></div>
+          </div>
+          <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6-desktop mdc-layout-grid__cell--span-4-tablet mdc-layout-grid__cell--span-2-mobile section_bar">
+            <div id="progress2" class="section_filled"></div>
+          </div>
+        </div>
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile" style="margin-top: 15px; position: relative; height: 680px; overflow: hidden;">
+          <!-- cell media -->
+          <div class="slides">
+            <div class="slide" id="slide1">
+              <img src="img/marshall.jpg" style="">
+            </div>
+            <div class="slide" id="slide2">
+              <img id="slide2" src="img/marshall.jpg">
+            </div>
+          </div> <!-- slides -->
+        </div> <!-- cell -->
+      </div>
+    </div> <!-- inner player -->
+  </div>
+
+  <div class="mdc-layout-grid suggestions" style="padding-top: 82px;">
+    <div class="mdc-layout-grid__inner"> <!-- inner more suggestions -->
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12-desktop mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-4-mobile">
+        suggestions
       </div>
     </div>
   </div>
+
 
   <style>
     .story_player {
@@ -52,25 +69,54 @@
       width: 0%;
       height: 4px;
     }
+    .slides {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1952px;
+      height: 600px;
+      background-color: white;
+    }
+    .slide {
+      width: 976px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #slide1 {
+      left: 0;
+    }
+    #slide2 {
+      left: 976px;
+    }
   </style>
 
   <audio id="clip">
     <source src="audio/marshall.m4a" type="audio/mp4">
   </audio>
 
-  <input type="button" value="click" onclick="play();" style="font-size: 40px; width: 300px;">
+  <input type="button" value="click" onclick="play1();" style="font-size: 40px; width: 300px;">
 
   <script>
-    function play() {
+    function play1() {
       clip = $('audio#clip')[0];
       duration = clip.duration;
-      console.log('length: ' + duration);
+
+      clip.play();
 
       $('#progress1').animate({
         width: "100%"
-      }, Math.round(duration*1000), "linear");
+      }, Math.round(duration*1000), "linear", function() {
+        $('.slides').animate({
+          left: "-976px",
+        }, 100, "linear", function() {
+          play2();
+        });
+      });
+    }
 
-      clip.play();
+    function play2() {
+
     }
   </script>
 

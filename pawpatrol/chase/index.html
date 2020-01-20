@@ -1,5 +1,11 @@
 <html>
 <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <style>
+    html {
+      font-size: initial;
+    }
+  </style>
   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -7,6 +13,10 @@
     src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
     crossorigin="anonymous"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="../../js/grid.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
@@ -58,224 +68,50 @@
     </div> <!-- inner player -->
   </div>
 
-  <div class="mdc-layout-grid suggestions" style="padding-top: 82px;">
-    <div class="mdc-layout-grid__inner"> <!-- inner more suggestions -->
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-mobile">
-        <img src="img/slide1.jpg" style="width: 100%">
-      </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-mobile">
-        <img src="img/slide1.jpg" style="width: 100%">
-      </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-mobile">
-        <img src="img/slide1.jpg" style="width: 100%">
-      </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet mdc-layout-grid__cell--span-4-mobile">
-        <img src="img/slide1.jpg" style="width: 100%">
-      </div>
-    </div>
+  <input id='tester' type="button" value="test" onclick="$('.pinterest-grid').css('width', Math.round($('.pinterest-grid').width()/2) ); $(window).resize();">
+
+  <div class="mdc-layout-grid suggestions" style="padding-top: 30px;">
+    <section class="pinterest-grid">
+
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1000x2000" /></article>
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1000x3000" /></article>
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/2000x3000" /></article>
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/3000x2000" /></article>
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/2000x4000" /></article>
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1024x768" /></article>
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1024x768" /></article>
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1024x768" /></article>
+      <article class="mdc-card"><img class="img-responsive" src="http://placehold.it/1024x768" /></article>
+
+    </section>
   </div>
-
-  <div class="caixa">
-    <div class="coluna1">
-      <div class="coluna2">
-        <div class="coluna4">
-          <div class="coluna8">
-            <div class="bloco">
-              <img src="1.jpg">
-              <div>Description</div>
-            </div>
-            <div class="insert"></div>
-          </div>
-          <div class="coluna8">
-            <div class="bloco">
-              <img src="2.jpg">
-              <div>Description</div>
-            </div>
-            <div class="insert"></div>
-          </div>
-        </div>
-        <div class="coluna4">
-          <div class="coluna8">
-            <div class="bloco">
-              <img src="3.jpg">
-              <div>Description</div>
-            </div>
-            <div class="insert"></div>
-          </div>
-          <div class="coluna8">
-            <div class="bloco">
-              <img src="4.jpg">
-              <div>Description</div>
-            </div>
-            <div class="insert"></div>
-          </div>
-        </div>
-      </div>
-      <div class="coluna2">
-        <div class="coluna4">
-          <div class="coluna8">
-            <div class="bloco"> <img src="5.jpg">
-              <div>Description</div>
-            </div>
-            <div class="insert"></div>
-          </div>
-          <div class="coluna8">
-            <div class="bloco">
-              <img src="6.jpg">
-              <div>Description</div>
-            </div>
-            <div class="insert"></div>
-          </div>
-        </div>
-        <div class="coluna4">
-          <div class="coluna8">
-            <div class="bloco">
-              <img src="7.jpg">
-              <div>Description</div>
-            </div>
-            <div class="insert"></div>
-          </div>
-          <div class="coluna8">
-            <div class="bloco">
-              <img src="8.jpg">
-              <div>Description</div>
-            </div>
-            <div class="insert"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="carregar">Load more</div>
-  </div>
-
-  <style>
-    .caixa {
-    max-width: 2400px;
-    width: 95%;
-    min-width: 240px;
-    margin: 0 auto
-    }
-    .bloco {
-    background: #fff;
-    float: left;
-    width: 96%;
-    margin: 2%;
-    border-radius: 6px;
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-    }
-    .bloco:hover {
-    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-    }
-    .bloco img {
-      border: 1px solid black;
-      width: 100%;
-      float: left;
-      border-top-left-radius: 6px;
-      border-top-right-radius: 6px;
-    }
-    .bloco div {
-    width: 96%;
-    padding: 2%;
-    font-size: 18px;
-    color: #666;
-    font-family: 'Exo 2', sans-serif;
-    float: left;
-    }
-    .coluna1, .coluna2, .coluna4, .coluna8 {
-    width: 100%;
-    float: left;
-    }
-    #carregar {
-    width: 52%;
-    margin: 20px 20%;
-    padding: 2%;
-    float: left;
-    background: #09c;
-    color: #fff;
-    text-align: center;
-    font-family: 'Exo 2', sans-serif;
-    font-size: 18px;
-    transition: all 0.3s;
-    }
-    #carregar:hover {
-    -moz-box-shadow: inset 0 0 8px -2px #000;
-    -webkit-box-shadow: inset 0 0 8px -2px #000;
-    box-shadow: inset 0 0 8px -2px #000;
-    cursor: pointer;
-    }
-
-    @media screen and (min-width : 240px) {
-      .coluna1 {
-      width: 100%;
-      float: left;
-      }
-    }
-    @media screen and (min-width : 640px) {
-      .coluna2 {
-      width: 50%;
-      float: left;
-      }
-    }
-    @media screen and (min-width : 1100px) {
-      .coluna2 {
-      width: auto;
-      float: none;
-      }
-      .coluna4 {
-      width: 25%;
-      float: left;
-      }
-    }
-    @media screen and (min-width : 2560px) {
-      .coluna2, .coluna4 {
-      width: auto;
-      float: none;
-      }
-      .coluna8 {
-      width: 12.5%;
-      float: left;
-      }
-    }
-  </style>
 
   <script>
-    $(document).ready(function() {
-      $('#carregar').click(function(){
-        $.ajax({
-          url: "krschacht.github.io/ajax.html",
-          type: 'GET',
-          success: function(data){
-            resposta = data.split('<//>');
-            numero = parseInt( $('.coluna1').width() / $('.bloco').width() );
+  var grid_width = 0;
+  $(document).ready(function(){
+    grid_width = $('.pinterest-grid').width();
+  });
 
-            if(numero == 1){
-              $('.insert').eq(7).before(resposta);
-            } else if(numero == 2){
-              $('.insert').eq(3).before(resposta.slice(0,4));
-              $('.insert').eq(7).before(resposta.slice(4,8));
-            } else if(numero == 4){
-              $('.insert').eq(1).before(resposta.slice(0,2));
-              $('.insert').eq(3).before(resposta.slice(2,4));
-              $('.insert').eq(5).before(resposta.slice(4,6));
-              $('.insert').eq(7).before(resposta.slice(6,8));
-            } else {
-              for(i = 0; i < 8; i++ ){
-                $('.insert').eq(i).before(resposta[i]);
-              }
-            }
-          },
-          error: function(xhr, thrownError){
-            alert(xhr.status);
-            alert(thrownError);
-          }
-        });
-      });
-    });
+  $('article.mdc-card img').click(function() {
+    $('.pinterest-grid').css('width', Math.round(grid_width/2) );
+    $(window).resize();
+
+    $('article.mdc-card img').removeClass('selected');
+    $(this).addClass('selected');
+
+    setTimeout(function () {
+      $(document).scrollTop($('.selected').offset().top-75);
+    }, 300);
+  });
   </script>
+  <style>
+    article.mdc-card {
+      cursor: hand;
+    }
+    .mdc-card img.selected {
+      border: 1px solid blue;
+    }
+  </style>
 
   <style>
     .story_player {
@@ -315,14 +151,21 @@
       left: 2128px;
     }
     #play {
-      color: rgb(77,0,234);
+      color: rgba(77, 0, 234, 0.8);
       font-size: 150px;
       position: absolute;
       top: 281px;
       left: 432px;
-      z-index: 10;
-      text-shadow: 0 0 5px #ffffff, 0 0 35px #ffffff, 0 0 50px #ffffff;
+      z-index: 3;
+      text-shadow: 0 0 77px #ffffff, 0 0 40px #ffffff, 0 0 40px #ffffff, 0 0 40px #ffffff, 0 0 35px #ffffff, 0 0 75px #ffffff;
       cursor: hand;
+    }
+
+    .pinterest-grid {
+      position:relative;
+    }
+    .pinterest-grid article {
+      position:absolute;
     }
   </style>
 
@@ -380,6 +223,9 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <!-- Instantiate single textfield component rendered in the document -->
   <script>
+    $(document).ready(function(){
+      $('.pinterest-grid').pinterest_grid({});
+    });
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');
     const topAppBar = new MDCTopAppBar(topAppBarElement);
     const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
@@ -428,6 +274,8 @@
   <br>
   <br>
   <br>
+
+  <input type="button" value="re-run" onclick="$(window).resize();"/>
 
   <script>
     document.write('&nbsp;&nbsp;&nbsp;<a href="index.html?'+Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+'" style="color: black;">refresh</a><br><br>');

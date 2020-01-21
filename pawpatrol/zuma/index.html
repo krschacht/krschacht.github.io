@@ -48,13 +48,21 @@
           <!-- cell media -->
           <div class="slides">
             <div class="slide" id="slide1">
+              <div style="text-align: center; width: 100%; position: relative; z-index: 3; margin-top: 250px;">
+                <a href="#" onclick="replay();" class="material-icons play-icon">
+                  play_circle_filled
+                </a>
+              </div>
               <img src="img/slide1.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
               <audio id="clip">
                 <source src="audio/slide1.m4a" type="audio/mp4">
               </audio>
             </div>
             <div class="slide" id="slide2">
-              <video muted controls="false" width='100%' height='100%' src='img/slide2.mp4' type='video/mp4' style="width: 1070px;"></video>
+              <video muted controls="false" width='100%' height='100%' src='img/slide2.mp4' type='video/mp4' style="width: 100%;"></video>
+              <audio id="clip">
+                <source src="audio/slide2.m4a" type="audio/mp4">
+              </audio>
             </div>
             <div class="slide" id="slide3">
               <div style="font-size: 41px; font-family: arial; margin-top: 325px; text-align: center;">
@@ -195,6 +203,20 @@
       left: 2128px;
     }
 
+    .play-icon {
+      color: rgb(77, 0, 234);
+      font-size: 120px;
+      text-shadow: 0 0 40px #ffffff, 0 0 40px #ffffff, 0 0 35px #ffffff, 0 0 75px #ffffff;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: white;
+      display: none;
+    }
+
+    .play-icon:hover {
+      text-decoration: none;
+      color: rgb(77, 0, 234);
+    }
+
     .pinterest-grid {
       position:relative;
     }
@@ -204,13 +226,26 @@
   </style>
 
   <script>
-    $(window).load(function(){
-      console.log('playing');
-      play1();
+    $(window).load(function() {
+      set_dimensions();
     });
 
+    var slide_width;
+
+    function set_dimensions() {
+      slide_width = $(".mdc-layout-grid__inner").width()
+      $('#slide2').css('left', slide_width + 'px');
+      $('#slide3').css('left', slide_width*2 + 'px');
+
+      $('.slide').css('width', slide_width + 'px');
+      $('.slides').css('width', slide_width*3 + 'px');
+
+      $('.play-icon').show();
+    }
+
     function play1() {
-      clip = $('audio#clip')[0];
+      $('.play-icon').hide();
+      clip = $('#slide1 audio#clip')[0];
       duration = Math.round(clip.duration*1000);
 
       clip.play();
@@ -219,7 +254,7 @@
         width: "100%"
       }, duration, "linear", function() {
         $('.slides').animate({
-          left: "-1064px",
+          left: "-" + slide_width + "px",
         }, 100, "linear", function() {
           play2();
         });
@@ -233,14 +268,16 @@
     function play2() {
       clip = $('#slide2 video')[0];
       duration = Math.round(clip.duration*1000);
+      clip.play();
 
+      clip = $('#slide2 audio#clip')[0];
       clip.play();
 
       $('#progress2').animate({
         width: "100%"
       }, duration, "linear", function() {
         $('.slides').animate({
-          left: "-2128px",
+          left: "-" + slide_width*2 + "px",
         }, 100, "linear", function() {
           done();
         });
@@ -253,6 +290,7 @@
 
     function done() {
       $("html, body").animate({ scrollTop: 700 }, 1000);
+      $('.play-icon').show();
     }
 
     function replay() {

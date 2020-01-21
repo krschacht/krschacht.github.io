@@ -57,6 +57,10 @@
               <audio id="clip">
                 <source src="audio/slide1.m4a" type="audio/mp4">
               </audio>
+
+              <audio id="clip-merged">
+                <source src="audio/slide12.m4a" type="audio/mp4">
+              </audio>
             </div>
             <div class="slide" id="slide2">
               <video muted controls="false" width='100%' height='100%' src='img/slide2.mp4' type='video/mp4' style="width: 100%;"></video>
@@ -247,6 +251,8 @@
       $('.play-icon').hide();
       clip = $('#slide1 audio#clip')[0];
       duration = Math.round(clip.duration*1000);
+
+      clip = $('#slide1 audio#clip-merged')[0];
 
       clip.play();
 

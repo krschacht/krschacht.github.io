@@ -54,11 +54,13 @@
               </audio>
             </div>
             <div class="slide" id="slide2">
-              <img src="img/slide1.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
+              <video muted controls="false" width='100%' height='100%' src='img/slide2.mp4' type='video/mp4' style="width: 1070px;"></video>
             </div>
             <div class="slide" id="slide3">
               <div style="font-size: 41px; font-family: arial; margin-top: 325px; text-align: center;">
-                Done
+                <a href="#" onclick="replay();" class="material-icons" style="font-size: 70px; text-decoration: none; color: black;">
+                  replay
+                </a>
               </div>
             </div>
           </div> <!-- slides -->
@@ -82,7 +84,9 @@
   var grid_width = 0;
   var grid_width_half = 0;
 
-  $(document).ready(function(){
+  $(window).load(function(){
+    console.log('pinterest grid');
+
     grid_width = $('.pinterest-grid').width();
     grid_width_half = Math.round(grid_width/2);
 
@@ -106,9 +110,10 @@
         open_sidebar($img);
       }, 300);
     });
+
+    $('.pinterest-grid').pinterest_grid({});
   });
 
-  var imgimg;
   function open_sidebar(img) {
     $img = img;
 
@@ -199,7 +204,8 @@
   </style>
 
   <script>
-    $(document).ready(function(){
+    $(window).load(function(){
+      console.log('playing');
       play1();
     });
 
@@ -225,7 +231,10 @@
     }
 
     function play2() {
-      duration = 1000;
+      clip = $('#slide2 video')[0];
+      duration = Math.round(clip.duration*1000);
+
+      clip.play();
 
       $('#progress2').animate({
         width: "100%"
@@ -244,6 +253,15 @@
 
     function done() {
       $("html, body").animate({ scrollTop: 700 }, 1000);
+    }
+
+    function replay() {
+      $('#slide1 img').css('right', '200px');
+      $('#progress1').css('width', '0%');
+      $('#progress2').css('width', '0%');
+      $('.slides').css('left', '0px');
+
+      play1();
     }
 
     function shuffle(array) {
@@ -270,9 +288,6 @@
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <!-- Instantiate single textfield component rendered in the document -->
   <script>
-    $(document).ready(function(){
-      $('.pinterest-grid').pinterest_grid({});
-    });
     const topAppBarElement = document.querySelector('.mdc-top-app-bar');
     const topAppBar = new MDCTopAppBar(topAppBarElement);
     const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
@@ -325,6 +340,17 @@
   <input type="button" value="re-run" onclick="$(window).resize();"/>
 
   <script>
+    $(document).ready(function() {
+      // executes when HTML-Document is loaded and DOM is ready
+      console.log("document is ready");
+    });
+
+
+    $(window).load(function() {
+      // executes when complete page is fully loaded, including all frames, objects and images
+      console.log("window is loaded");
+    });
+
     document.write('&nbsp;&nbsp;&nbsp;<a href="index.html?'+Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)+'" style="color: black;">refresh</a><br><br>');
   </script>
 </body>

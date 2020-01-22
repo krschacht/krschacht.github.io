@@ -33,15 +33,15 @@
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
         <div class="mdc-card demo-card" onclick="location.href='chase/index.html'">
-          <div class="mdc-card__primary-action" tabindex="0">
+          <div class="mdc-card__primary-action" tabindex="0"> <!-- http://placehold.it/400x400 -->
             <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/chase.jpg');">
+            </div>
+            <div class="demo-card__primary">
               <i class="material-icons play">
                 play_circle_filled
               </i>
-            </div>
-            <div class="demo-card__primary">
-              <div class="demo-card__supporting-text mdc-typography">
-                Chase
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
+                Who is Chase?
               </div>
             </div>
           </div>
@@ -52,13 +52,13 @@
         <div class="mdc-card demo-card" onclick="location.href='rubble/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
             <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/rubble.jpg');">
+            </div>
+            <div class="demo-card__primary">
               <i class="material-icons play">
                 play_circle_filled
               </i>
-            </div>
-            <div class="demo-card__primary">
-              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
-                Rubble
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
+                Who is Rubble?
               </div>
             </div>
           </div>
@@ -69,13 +69,13 @@
         <div class="mdc-card demo-card" onclick="location.href='rocky/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
             <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/rocky.jpg');">
+            </div>
+            <div class="demo-card__primary">
               <i class="material-icons play">
                 play_circle_filled
               </i>
-            </div>
-            <div class="demo-card__primary">
-              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
-                Rocky
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
+                Who is Rocky?
               </div>
             </div>
           </div>
@@ -86,13 +86,13 @@
         <div class="mdc-card demo-card" onclick="location.href='zuma/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
             <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/zuma.jpg');">
+            </div>
+            <div class="demo-card__primary">
               <i class="material-icons play">
                 play_circle_filled
               </i>
-            </div>
-            <div class="demo-card__primary">
-              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
-                Zuma
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
+                Who is Zuma?
               </div>
             </div>
           </div>
@@ -106,12 +106,12 @@
         <div class="mdc-card demo-card" onclick="location.href='skye/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
             <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/skye.jpg');">
+            </div>
+            <div class="demo-card__primary">
               <i class="material-icons play">
                 play_circle_filled
               </i>
-            </div>
-            <div class="demo-card__primary">
-              <div class="demo-card__supporting-text mdc-typography">
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
                 Skye
               </div>
             </div>
@@ -123,13 +123,13 @@
         <div class="mdc-card demo-card" onclick="location.href='marshall/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
             <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/marshall.jpg');">
+            </div>
+            <div class="demo-card__primary">
               <i class="material-icons play">
                 play_circle_filled
               </i>
-            </div>
-            <div class="demo-card__primary">
-              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
-                Marshall
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
+                Who is Marshall?
               </div>
             </div>
           </div>
@@ -140,18 +140,20 @@
         <div class="mdc-card demo-card" onclick="location.href='everest/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
             <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/everest.jpg');">
+            </div>
+            <div class="demo-card__primary">
               <i class="material-icons play">
                 play_circle_filled
               </i>
-            </div>
-            <div class="demo-card__primary">
-              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline8">
-                Everest
+              <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
+                Who is Everest?
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
 
     </div>
   </div>
@@ -160,15 +162,18 @@
   .demo-card__primary {
     padding: 1rem;
   }
-  .mdc-card__media {
-    height: 400px;
+  .demo-card__media {
+    background-size: 70%;
+    background-position: top;
   }
   .play {
     color: rgb(77, 0, 234);
-    font-size: 120px;
-    position: absolute;
-    top: 137px;
-    left: 96px;
+    font-size: 30px;
+    display: block;
+    float: left;
+    height: 30px;
+    width: 30px;
+    margin-right: 7px;
     text-shadow: 0 0 40px #ffffff, 0 0 40px #ffffff, 0 0 35px #ffffff, 0 0 75px #ffffff;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;

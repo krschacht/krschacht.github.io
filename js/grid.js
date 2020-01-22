@@ -16,8 +16,8 @@
 ; (function ($, window, document, undefined) {
   var pluginName = 'pinterest_grid',
     defaults = {
-      padding_x: 10,
-      padding_y: 10,
+      padding_x: 20,
+      padding_y: 12,
       no_columns: 4,
       margin_bottom: 50,
       breakpoints: [

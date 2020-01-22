@@ -20,7 +20,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <script src="images.js"></script>
+  <script src="details.js"></script>
 </head>
 <body style="background-color: white; border: 0; margin: 0; padding: 0;">
 
@@ -53,19 +53,19 @@
                   play_circle_filled
                 </a>
               </div>
-              <img src="img/slide1.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
+              <img src="character/img/slide1.jpg" style="height: 100%; top: 0; right: 200px; position: absolute;">
               <audio id="clip">
-                <source src="audio/slide1.m4a" type="audio/mp4">
+                <source src="character/audio/slide1.m4a" type="audio/mp4">
               </audio>
 
               <audio id="clip-merged">
-                <source src="audio/slide12.m4a" type="audio/mp4">
+                <source src="character/audio/slide12.m4a" type="audio/mp4">
               </audio>
             </div>
             <div class="slide" id="slide2">
-              <video muted controls="false" width='100%' height='100%' src='img/slide2.mp4' type='video/mp4' style="width: 100%;"></video>
+              <video muted controls="false" width='100%' height='100%' src='character/img/slide2.mp4' type='video/mp4' style="width: 100%;"></video>
               <audio id="clip">
-                <source src="audio/slide2.m4a" type="audio/mp4">
+                <source src="character/audio/slide2.m4a" type="audio/mp4">
               </audio>
             </div>
             <div class="slide" id="slide3">
@@ -84,19 +84,19 @@
 
   <!-- attributes -->
 
-  <div class="mdc-layout-grid" style="display: none;">
+  <div class="mdc-layout-grid">
     <div class="mdc-layout-grid__inner">
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
-        <div class="mdc-card demo-card" onclick="location.href='chase/index.html'">
+        <div class="mdc-card demo-card" onclick="location.href='breed.html'">
           <div class="mdc-card__primary-action" tabindex="0"> <!-- http://placehold.it/400x400 -->
             <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/dog.jpg');">
-            </div>
-            <div class="demo-card__primary">
               <i class="material-icons play">
                 play_circle_filled
               </i>
+            </div>
+            <div class="demo-card__primary">
               <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
-                What kind of dog is chase?
+                What kind of dog is <script>document.write(name);</script>?
               </div>
             </div>
           </div>
@@ -106,29 +106,30 @@
       <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
         <div class="mdc-card demo-card" onclick="location.href='rubble/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
-            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/rubble.jpg');">
-            </div>
-            <div class="demo-card__primary">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/vehicle.jpg');">
               <i class="material-icons play">
                 play_circle_filled
               </i>
+            </div>
+            <div class="demo-card__primary">
               <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
-                Who is Rubble?
+                What is <script>document.write(name);</script>'s vehicle?
               </div>
             </div>
           </div>
         </div>
 
       </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
+
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet" style="display: none;">
         <div class="mdc-card demo-card" onclick="location.href='rocky/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
-            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/rocky.jpg');">
-            </div>
-            <div class="demo-card__primary">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/dog.jpg');">
               <i class="material-icons play">
                 play_circle_filled
               </i>
+            </div>
+            <div class="demo-card__primary">
               <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
                 Who is Rocky?
               </div>
@@ -137,15 +138,15 @@
         </div>
 
       </div>
-      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet">
+      <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3-desktop mdc-layout-grid__cell--span-2-tablet" style="display: none;">
         <div class="mdc-card demo-card" onclick="location.href='zuma/index.html'">
           <div class="mdc-card__primary-action" tabindex="0">
-            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/zuma.jpg');">
-            </div>
-            <div class="demo-card__primary">
+            <div class="mdc-card__media mdc-card__media--16-9 demo-card__media" style="background-image: url('img/dog.jpg');">
               <i class="material-icons play">
                 play_circle_filled
               </i>
+            </div>
+            <div class="demo-card__primary">
               <div class="demo-card__supporting-text mdc-typography mdc-typography--headline6">
                 Who is Zuma?
               </div>
@@ -167,13 +168,14 @@
   }
   .play {
     color: rgb(77, 0, 234);
-    font-size: 30px;
+    font-size: 43px;
     display: block;
-    float: left;
     height: 30px;
     width: 30px;
+    position: absolute;
+    top: 57px;
+    left: 105px;
     margin-right: 7px;
-    margin-bottom: 7px;
     text-shadow: 0 0 40px #ffffff, 0 0 40px #ffffff, 0 0 35px #ffffff, 0 0 75px #ffffff;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
